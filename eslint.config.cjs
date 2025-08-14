@@ -4,6 +4,7 @@ const tsParser = require('@typescript-eslint/parser');
 const tsPlugin = require('@typescript-eslint/eslint-plugin');
 const importPlugin = require('eslint-plugin-import');
 const unusedImports = require('eslint-plugin-unused-imports');
+const globals = require('globals');
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 module.exports = [
@@ -15,7 +16,10 @@ module.exports = [
 			parser: tsParser,
 			ecmaVersion: 'latest',
 			sourceType: 'module',
-			env: { es2021: true, node: true },
+			globals: {
+				...globals.node,
+				...globals.es2021,
+			},
 		},
 		plugins: {
 			'@typescript-eslint': tsPlugin,
@@ -40,7 +44,10 @@ module.exports = [
 		languageOptions: {
 			ecmaVersion: 'latest',
 			sourceType: 'module',
-			env: { es2021: true, node: true },
+			globals: {
+				...globals.node,
+				...globals.es2021,
+			},
 		},
 		plugins: { import: importPlugin, 'unused-imports': unusedImports },
 		rules: {

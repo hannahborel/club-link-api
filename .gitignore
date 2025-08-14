@@ -28,3 +28,4 @@ pnpm-error.log*
 .idea/
 *.swp
 *.swo
+.vercel

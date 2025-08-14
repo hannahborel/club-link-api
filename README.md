@@ -38,6 +38,9 @@ npm install
 ```bash
 npm run lint    # ESLint across the repo
 npm run format  # Prettier format
+npm run db:generate # Generate SQL migrations from Drizzle schema
+npm run db:migrate  # Apply migrations to the database
+npm run db:smoke    # Run DB connectivity and FK smoke test
 ```
 
 ## Tooling
@@ -56,7 +59,50 @@ npm run format  # Prettier format
 
 ## Environment Variables
 
-Will be added with DB and Clerk setup (e.g., `DATABASE_URL`, `CLERK_*`).
+Create a `.env.local` in this directory with at least:
+
+```bash
+# Vercel Postgres (pooled)
+POSTGRES_URL="postgres://..."
+
+# Optional: direct/non-pooled connection used by some scripts
+POSTGRES_URL_NON_POOLING="postgres://..."
+
+# Clerk (to be added later)
+# CLERK_PUBLISHABLE_KEY="..."
+# CLERK_SECRET_KEY="..."
+```
+
+The Drizzle config reads `POSTGRES_URL` by default.
+
+> Tip: When running locally against Vercel Postgres, ensure your IP is allowed or use `vercel env pull` if applicable.
+
+## Database & Drizzle
+
+Drizzle ORM is configured under `src/lib/db/`.
+
+- Edit schema in `src/lib/db/schema.ts`
+- Generate migrations from the schema:
+
+```bash
+npm run db:generate
+```
+
+- Apply migrations to the target database:
+
+```bash
+npm run db:migrate
+```
+
+### Smoke Test
+
+A smoke test validates connectivity and basic relations by inserting linked records and cleaning them up.
+
+```bash
+npm run db:smoke
+```
+
+This uses the same `POSTGRES_URL`/`POSTGRES_URL_NON_POOLING` env vars.
 
 ## Contributing
 
