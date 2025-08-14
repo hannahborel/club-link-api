@@ -7,7 +7,7 @@ import { users } from '@/lib/db/schema';
 
 // CORS headers for cross-origin requests
 const corsHeaders = {
-  'Access-Control-Allow-Origin': 'http://localhost:3001',
+  'Access-Control-Allow-Origin': '*', // Allow all origins for mobile app testing
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
 };
