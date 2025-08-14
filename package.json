@@ -1,0 +1,40 @@
+{
+  "name": "club-link-api",
+  "version": "1.0.0",
+  "description": "Api for Club Link Web and Club Link Mobile",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hannahborel/club-link-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hannahborel/club-link-api/issues"
+  },
+  "homepage": "https://github.com/hannahborel/club-link-api#readme",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,md,mdx,css,scss}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.39.1",
+    "@typescript-eslint/parser": "^8.39.1",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2"
+  }
+}
