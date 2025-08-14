@@ -44,8 +44,11 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "@types/pg": "^8.15.5",
     "@vercel/postgres": "^0.10.0",
+    "dotenv": "^17.2.1",
     "drizzle-orm": "^0.44.4",
+    "pg": "^8.16.3",
     "zod": "^4.0.17"
   }
 }
