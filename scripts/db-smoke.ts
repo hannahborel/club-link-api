@@ -9,11 +9,9 @@ function assert(condition: unknown, message: string): asserts condition {
 }
 
 async function main() {
-  const url = process.env.POSTGRES_URL || process.env.POSTGRES_URL_NON_POOLING;
+  const url = process.env.DATABASE_URL;
   if (!url) {
-    throw new Error(
-      'No Postgres URL found. Set POSTGRES_URL (pooled) or POSTGRES_URL_NON_POOLING (direct) and re-run.',
-    );
+    throw new Error('No database URL found. Set DATABASE_URL in your .env.local file and re-run.');
   }
 
   console.log('Running DB smoke test against:', new URL(url).host);
