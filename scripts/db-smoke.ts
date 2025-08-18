@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 import { Pool } from 'pg';
 
 // Load environment variables from env.development
-dotenv.config({ path: 'env.development' });
+dotenv.config({ path: '.env' });
 
 function assert(condition: unknown, message: string): asserts condition {
   if (!condition) throw new Error(message);
